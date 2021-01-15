@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test JSVector class</title>
+    <meta charset = "utf-8">
+    <script src="jsvector.js"></script>
+  </head>
+
+ <body style = "white-space:pre">   <!-- preserve white space so we can use \n for new line -->
+    <script>
+        var vec = new JSVector();   // no args
+        var text = "constructor with no args " + vec + " -- should be x: 0, y: 0"+ "\n"+"\n";
+        vec = new JSVector(2,3);   // constructor with 2 args
+        text += "constructor with 2 args " + vec +  " -- should be x: 2.00, y: 3.00"+ "\n"+"\n";
+        text += "normalize " + vec.normalize() + " -- should be x: 0.55, y: 0.83"+ "\n"+"\n";
+        text += "set magnitude: " + vec.setMagnitude(Math.SQRT2) + " -- should be x: 0.78, y: 1.18"+ "\n"+"\n";
+        text += "get magnitude: " + vec.getMagnitude().toFixed(2) + " -- should be 1.41"+ "\n"+"\n";
+        text += "set direction: " + vec.setDirection(Math.PI/4) + " -- should be x: 1.00, y: 1.00"+ "\n"+"\n";
+        text += "get direction: " + vec.getDirection().toFixed(2) + " -- should be 0.79 or pi/4"+ "\n"+"\n";
+        text += "rotate clockwise " + vec.rotate(Math.PI/4) + " -- should be x: 0.00, y: 1.41"+ "\n"+"\n";
+        text += "rotate counterclockwise " + vec.rotate(-Math.PI/4) + " -- should be x: 1.00, y: 1.00"+ "\n"+"\n";
+        text += "add " + vec.add(new JSVector(4,5)) + " -- should be x: 5.00, y: 6.00"+ "\n"+"\n";
+        text += "sub " + vec.sub(new JSVector(4,5)) + " -- should be x: 1.00, y: 1.00"+ "\n"+"\n";
+        text += "multiply " + vec.multiply(2.5) + " -- should be x: 2.50, y: 2.50"+ "\n"+"\n";
+        text += "divide " + vec.divide(2.5) + " -- should be x: 1.00, y: 1.00"+ "\n"+"\n";
+        text += "addGetNew " + JSVector.addGetNew(vec,vec) + " -- should be x: 2.00, y: 2.00"+ "\n"+"\n";
+        text += "subGetNew " + JSVector.subGetNew(vec,vec) + " -- should be x: 0.00, y: 0.00"+ "\n"+"\n";
+        text += "distance: " + vec.distance(new JSVector(2,2)).toFixed(2) + " -- should be 1.41"+ "\n"+"\n";
+        text += "distanceSquared: " + vec.distanceSquared(new JSVector(2,2)).toFixed(2) + " -- should be 2.00"+ "\n"+"\n";
+        text += "angleBetween: " + vec.angleBetween(new JSVector(0,1)).toFixed(2) + " -- should be 0.79 or pi/4"+ "\n"+"\n";
+        text += "angleBetween: " + vec.angleBetween(new JSVector(0,-1)).toFixed(2) + " -- should be 2.36  or pi*3/4"+ "\n"+"\n";
+        text += "limit: "+ vec.limit(1) +  " -- should be x: 0.71, y: 0.71"+ "\n"+"\n";
+        text += "copy: "+ vec.copy() +  " -- should be x: 0.71, y: 0.71"+ "\n"+"\n";
+
+        document.body.textContent = text;   // put this text into the body of the page
+
+    </script>
+  </body>
+</html>
