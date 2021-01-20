@@ -105,16 +105,11 @@ class EcoSystem {
         ctx2.lineWidth = 1 / this.scaleX;
         ctx2.rect(c1x, c1y, cnv1.width, cnv1.height);
         ctx2.stroke();
-        for (let r = 0; r < this.numRows; r++) {
-            for (let c = 0; c < this.numCols; c++) {
-                this.cells[r][c].run();
-            }
-        }
+        //  Render the cells in the 2D array
+
+
         ctx1.restore();
         ctx2.restore();
-        //  Render the cells in the 2D array
-        
-
     }// ++++++++++++++++++++++++  end run()
 
 
